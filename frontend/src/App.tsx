@@ -12,6 +12,7 @@ function App() {
       axios.get("/api/todo")
           .then(response => {setDataToDo(response.data)})
           .catch(error => console.error("Error fetching data", error))
+
   },[])
 
 
