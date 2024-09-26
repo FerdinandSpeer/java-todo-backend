@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import {ToDo} from "./ToDo.ts";
 import TodoColumn from "./TodoColumn.tsx";
 import {allPossibleTodos} from "./TodoStatus.ts";
-import NewTodoCard from "./NewTodoCard.tsx";
 
 
 function App() {
@@ -35,7 +34,7 @@ function App() {
                 {
                     allPossibleTodos.map(status => {
                         const filteredTodos = todos.filter(todo => todo.status === status)
-                        return <TodoColumn status={status} todos={filteredTodos} newItemSaved={fetchData}/>
+                        return <TodoColumn status={status} todos={filteredTodos} onTodoItemChange={fetchData}/>
                     })
                 }
 
