@@ -11,13 +11,15 @@ function App() {
 
     const [todos, setTodos] = useState<ToDo[]>()
 
-    useEffect(() => {
+    function fetchData() {
         axios.get("/api/todo")
             .then(response => {
                 setTodos(response.data)
             })
             .catch(error => console.error("Error fetching data", error))
-    }, [])
+    }
+
+    useEffect(fetchData, [])
 
     if (!todos) {
         return "Loading..."
@@ -32,9 +34,10 @@ function App() {
                 {
                     allPossibleTodos.map(status => {
                         const filteredTodos = todos.filter(todo => todo.status === status)
-                        return <TodoColumn status={status} todos={filteredTodos}/>
+                        return <TodoColumn key={status} status={status} todos={filteredTodos} onTodoItemChange={fetchData}/>
                     })
                 }
+
             </div>
 
         </>
