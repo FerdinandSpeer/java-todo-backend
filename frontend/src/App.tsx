@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {ToDo} from "./ToDo.ts";
 import TodoColumn from "./TodoColumn.tsx";
 import {allPossibleTodos} from "./TodoStatus.ts";
+import NewTodoCard from "./NewTodoCard.tsx";
 
 
 function App() {
@@ -11,13 +12,15 @@ function App() {
 
     const [todos, setTodos] = useState<ToDo[]>()
 
-    useEffect(() => {
+    function fetchData() {
         axios.get("/api/todo")
             .then(response => {
                 setTodos(response.data)
             })
             .catch(error => console.error("Error fetching data", error))
-    }, [])
+    }
+
+    useEffect(fetchData, [])
 
     if (!todos) {
         return "Loading..."
@@ -32,9 +35,10 @@ function App() {
                 {
                     allPossibleTodos.map(status => {
                         const filteredTodos = todos.filter(todo => todo.status === status)
-                        return <TodoColumn status={status} todos={filteredTodos}/>
+                        return <TodoColumn status={status} todos={filteredTodos} newItemSaved={fetchData}/>
                     })
                 }
+
             </div>
 
         </>

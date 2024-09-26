@@ -17,8 +17,8 @@ body {
 .todo-card {
     border: 1px solid black;
     border-radius: 15px;
-    height: 50px;
-    width: 100px;
+    height: 100px;
+    width: auto;
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
@@ -33,3 +33,21 @@ body {
     background-color: rgba(250, 235, 215, 0.8);
 
 }
+
+.todo-card.new-todo{
+    display: grid;
+    grid-gap: 10px;
+}
+
+.todo-card.new-todo input{
+    width: 100%;
+    border-width: 0 0 1px 0;
+    padding-top: 20px;
+    height: 20px;
+}
+
+.todo-card.new-todo button{
+    justify-self: end;
+    height: 20px;
+}
+
