@@ -1,6 +1,6 @@
 body {
     font-family: "Roboto Light", sans-serif;
-    background-color: rgba(226, 195, 105, 0.6);
+    background-color: rgb(175, 147, 147);
 }
 .page {
     display: grid;
@@ -19,7 +19,7 @@ body {
     grid-gap: 10px;
     border: 1px solid black;
     border-radius: 15px;
-    height: 100px;
+    height: auto;
     width: auto;
     margin-bottom: 20px;
     padding: 10px;
@@ -42,19 +42,35 @@ body {
 }
 
 .todo-card.new-todo input{
+    display: flex;
     width: 100%;
     border-width: 0 0 1px 0;
     padding-top: 20px;
     height: 20px;
 }
 
-.todo-card.new-todo button{
-    justify-self: end;
-    height: 20px;
+.delete-button{
+    background-color: #af9393;
+    height: 25px;
 }
 
-.delete-button{
-    justify-content: end;
-    height: 20px;
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+.card-nav-button{
+    background-color: #809696;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    height: 25px;
+}
+
+.safe-button{
+
+    background-color: #DDE9C7;
+    height: 25px;
+    width: 60px;
+    ;
 }
 

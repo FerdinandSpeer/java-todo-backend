@@ -28,7 +28,7 @@ export default function NewTodoCard(props: Props) {
         <div>
             <div className={"todo-card new-todo"}>
                 <input type={"text"} placeholder={"New ToDo"} onInput={changeText} value={text}/>
-                <button onClick={saveTodo}>Save</button>
+                <button className={"safe-button"} onClick={saveTodo}>Save</button>
             </div>
         </div>
     );

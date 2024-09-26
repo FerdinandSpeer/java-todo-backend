@@ -34,7 +34,7 @@ function App() {
                 {
                     allPossibleTodos.map(status => {
                         const filteredTodos = todos.filter(todo => todo.status === status)
-                        return <TodoColumn status={status} todos={filteredTodos} onTodoItemChange={fetchData}/>
+                        return <TodoColumn key={status} status={status} todos={filteredTodos} onTodoItemChange={fetchData}/>
                     })
                 }
 
